@@ -13,12 +13,15 @@ class JobListing extends Component
 
     renderListing()
     {
+        //holds all job information
         const job = this.props.location.state.job;
+        //parses text to html
         const parser = new DOMParser();
+        //parsed html text
         const html = (parser.parseFromString(job.description, 'text/html'));
-        console.log(html);
 
 
+        
         return (
             <div id="job_listing_container">
                 <h1>{job.title}</h1>
