@@ -1,0 +1,241 @@
+  *
+  {
+    box-sizing: border-box;
+    z-index: 0;
+  }
+  html
+  {
+    min-height: 100%;
+    height: 100vh;
+    position: relative;
+    display: block;
+    box-sizing: border-box;
+    z-index: 0;
+  }
+
+  body{
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+      sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    position: relative;
+    min-height: 100%;
+    height: 100vh;
+    width: 100%;
+    box-sizing: border-box;
+    display: block;
+    z-index: 0;
+  }
+
+  code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+      monospace;
+  }
+  nav
+  {
+    display: block;
+    width: 100%;
+    background-color: #FFF;
+    color: #212121;
+    height: 3rem;
+    box-sizing: border-box;
+    
+  }
+
+  nav a{
+    color: #263238;
+    text-decoration: none;
+    line-height: 3rem;
+    padding: 0;
+    font-size: 1.25rem;
+    font-weight: bold;
+  }
+  nav a i.fas
+  {
+    font-size: 1.5rem;
+  }
+
+  #link-container
+  {
+    width: 50%;
+    margin: 0 auto;
+  }
+
+  div#main-container
+  {
+    width: 100%;
+    display: block;
+    position: relative;
+    height: 100vh;
+
+  }
+
+  div#job-container
+  {
+    text-align: left;
+    display: block;
+    width: 50%;
+    margin: 0 auto;
+    height: auto;
+    min-height: 100vh;
+  }
+
+  ul
+  {
+    list-style: none;
+    padding: 0;
+  }
+
+  li
+  {
+    padding: none;
+    margin: none;
+    display: block;
+  }
+  .input-container
+  {
+    display:inline-block;
+    margin: 25px 25px 0 0;
+  }
+
+  input
+  {
+    height: 2rem;
+    display: inline-block;
+    box-sizing: border-box;
+  }
+
+  input[type="text"]
+  {
+    padding: 10px;
+    width: 300px;
+    border: double 4px lightgray;
+    margin-right: 15px;
+  }
+
+  input[type="checkbox"]
+  {
+    padding: 0;
+  }
+
+  label
+  {
+    line-height: 2rem;
+    font-size: .8rem;
+  }
+
+
+  form
+  {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    padding: 20px;
+  }
+
+  form *
+  {
+    padding: 5px;
+  }
+
+  input[type="submit"]
+  {
+    height: 32px;
+    background-color: #4285F4;
+    font-size: 16px;
+    border-radius: 4px;
+    padding: 10px 20px;
+    border: none;
+    color: #fff;
+    text-align: center;
+    line-height: 0px;
+    margin-left: 14px;
+  }
+
+  div#job_listing_container, div#job_listing_container div
+  {
+    background-color: #FFF;
+    z-index: 10;
+    padding: 18px 24px;
+  }
+
+
+  div#job_listing_container
+  {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0;
+    min-height: 100%;
+  }
+
+  footer
+  {
+    height: 60px;
+    width: 100%;
+    /* position: absolute;
+    bottom: 0;
+    left: 0; */
+    background-color: #eceff1;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+  }
+
+  footer *
+  {
+    display: inline-block;
+    color: #4B515D;
+    font-size: .9rem;
+  }
+
+  footer a
+  {
+    color: #4285F4;
+    text-decoration: none;
+
+  }
+  div.listing-title
+  {
+    box-sizing:border-box;
+    line-height: 32px;
+
+  }
+  div.listing-title h4
+  {
+    font-size: 16px;
+    display: block;
+    margin: 0;
+    height: 32px;
+
+  }
+
+
+  div.listing-title h4 a
+  {
+    color: #4285F4;
+    text-decoration: none;
+  }
+  div.listing-title p
+  {
+    padding: 0;
+    margin: 0;
+    height: auto;
+    display: block;
+    font-size: 14px;
+    height: 32px;
+    line-height: 16px;
+  }
+
+
+  div.listing-meta-data span
+  {
+    display: block;
+    font-size: 12px;
+    height: 32px;
+    line-height: 32px;
+    color: #263238;
+  }

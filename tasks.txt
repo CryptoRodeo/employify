@@ -1,0 +1,11 @@
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Tasks
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+- Build job posting container
+
+- Capture JSON from Github Jobs API
+
+Jobs API: https://jobs.github.com/api
+
+
