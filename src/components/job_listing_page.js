@@ -32,8 +32,10 @@ class JobListing extends Component
 
     render()
     {
-        return(
-                this.renderListing()
+        // Renders this page outside the app container, allowing it to get full screen width & height
+        return ReactDOM.createPortal(
+                this.renderListing(),
+                document.querySelector("body")
         )
     }
 }
