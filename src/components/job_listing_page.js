@@ -11,6 +11,16 @@ class JobListing extends Component
         super(props);
     }
 
+    handle_click(e)
+    {
+        let parent = document.querySelector("body")
+        let child = document.querySelector("#job_listing_container");
+
+        parent.remove(child);
+        e.preventDefault();
+
+    }
+
     renderListing()
     {
         //holds all job information
@@ -24,6 +34,7 @@ class JobListing extends Component
         
         return (
             <div id="job_listing_container">
+                <a href="" id="go_back" onClick={(event) => {this.handle_click(event)}}>Go Back</a>
                 <h1>{job.title}</h1>
                 <p>{job.company}</p>
                 <p>{job.location}</p>

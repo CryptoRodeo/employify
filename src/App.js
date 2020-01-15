@@ -8,6 +8,7 @@ import {BrowserRouter as Router,Route} from "react-router-dom";
 import Navbar from "./components/navbar";
 import AppContainer from "./components/app-container";
 import JobListing from "./components/job_listing_page";
+import Footer from "./components/footer";
 
 
 function App() {
@@ -25,12 +26,10 @@ function App() {
         <div id="job-container">
           <AppContainer />
         </div>
-        <footer>
-          <a href="https://github.com/cryptorodeo/employify" target="_blank">Github</a>
-          <p><i>Make your move.</i></p>
-          <p>© 2020 Employify inc. All rights reserved.</p>
-       </footer> 
+
+        <Footer />
       </div> 
+
     </Router>
   );
 }
