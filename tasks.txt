@@ -2,10 +2,9 @@
 Tasks
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-- Build job posting container
+- Render the job listing page on the same page as the search results
 
-- Capture JSON from Github Jobs API
+	- OR: redirect back to the search results (harder?)
 
-Jobs API: https://jobs.github.com/api
 
 
