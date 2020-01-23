@@ -15,11 +15,14 @@ export default class JobForm extends Component
                  * TASK: Change how the values are passed onto the url parameters
                  * 
                  * Instead of a JSON object try the values themselves.
+                 * 
+                 * 
                  */}
-                <form method="post" action="/api/:params" onSubmit={this.props.handleSubmit}>
+                <form method="POST" action="http:localhost:8080/api" onSubmit={this.props.handleSubmit}>
                     <input
                     required
                         type="text"
+                        name="description"
                         placeholder={this.props.job_description}
                         value={this.props.jobFilter}
                         onChange={this.props.handleJobFilter}
@@ -27,6 +30,7 @@ export default class JobForm extends Component
                     <input
                     required
                         type="text" 
+                        name="location"
                         placeholder={this.props.location_description}
                         value={this.props.locationFilter}
                         onChange={this.props.handleLocationFilter}

@@ -47,7 +47,7 @@ export default class AppContainer extends Component
          * Note: try this: make the filters url parameters, do a get request through that.
          */
 
-        axios.get(`http://localhost:8080/api/${JSON.stringify(filters)}`)
+        axios.get(`http://localhost:8080/api?description=${filters.description}&location=${filters.location}`)
         .then((job_listings) => this.setState({job_listings: job_listings.data}));
 
         e.preventDefault();
