@@ -4,6 +4,7 @@ import {Link} from 'react-router-dom';
 import ReactHtmlParser from 'react-html-parser';
 
 
+
 class JobListing extends Component
 {
     constructor(props)
@@ -18,6 +19,8 @@ class JobListing extends Component
 
         parent.remove(child);
         e.preventDefault();
+
+
 
     }
 
@@ -34,7 +37,7 @@ class JobListing extends Component
         
         return (
             <div id="job_listing_container">
-                <a href="" id="go_back" onClick={(event) => {this.handle_click(event)}}>Go Back</a>
+                <Link to={{ pathname: "/"}}>Go Back</Link>
                 <h1>{job.title}</h1>
                 <p>{job.company}</p>
                 <p>{job.location}</p>

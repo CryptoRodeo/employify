@@ -29,12 +29,6 @@ class JobListings extends Component
                                     <div className="listing-container">
                                         <div className="listing-title">
                                             <h4>
-                                            {/* <a 
-                                                href={job.url} 
-                                                onClick={ (e) => { this.props.returnListing(e, job)} } 
-                                                target="_blank">
-                                                {job.title}
-                                            </a> */}
                                             <Link to={{
                                                 pathname: "/listing",
                                                 state:{

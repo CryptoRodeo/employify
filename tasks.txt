@@ -6,5 +6,5 @@ Tasks
 
 	- OR: redirect back to the search results (harder?)
 
-
+	- OR: make the listing page appear in the same url address
 

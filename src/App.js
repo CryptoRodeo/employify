@@ -14,9 +14,6 @@ import Footer from "./components/footer";
 function App() {
   return (
     <Router>
-      {/**
-       * Use React Portals for this component
-       */}
       <Route 
           exact path="/listing" 
           component={JobListing}

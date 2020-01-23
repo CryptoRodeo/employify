@@ -11,14 +11,7 @@ export default class JobForm extends Component
     {
         return (
             <div>
-                {/**
-                 * TASK: Change how the values are passed onto the url parameters
-                 * 
-                 * Instead of a JSON object try the values themselves.
-                 * 
-                 * 
-                 */}
-                <form method="POST" action="http:localhost:8080/api" onSubmit={this.props.handleSubmit}>
+                <form method="get" onSubmit={this.props.handleSubmit}>
                     <input
                     required
                         type="text"
