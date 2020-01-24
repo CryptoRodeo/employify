@@ -31,17 +31,28 @@ class JobListing extends Component
         //parses text to html
         const parser = new DOMParser();
         //parsed html text
-        const html = (parser.parseFromString(job.description, 'text/html'));
+        const description = (parser.parseFromString(job.description, 'text/html'));
 
 
         
         return (
             <div id="job_listing_container">
-                <Link to={{ pathname: "/"}}>Go Back</Link>
+                <div id="job_listing_content">
+                <Link to={{ pathname: "/"}}><i className="fas fa-chevron-circle-left"></i></Link>
                 <h1>{job.title}</h1>
                 <p>{job.company}</p>
                 <p>{job.location}</p>
-                    {ReactHtmlParser(html.body.innerHTML)}
+                    {ReactHtmlParser(description.body.innerHTML)}
+                </div>
+                <div id="job_listing_side_border">
+                    <div id="job_application_container">
+                        <h3>Interested? Apply Now</h3>
+                        <img src={job.company_logo}/>
+                        <div id="application_link">
+                            <h2>Apply Here</h2>{ReactHtmlParser(job.how_to_apply)}
+                        </div>
+                    </div>
+                </div>
             </div>
         );
     }
