@@ -2,9 +2,4 @@
 Tasks
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-- Render the job listing page on the same page as the search results
-
-	- OR: redirect back to the search results (harder?)
-
-	- OR: make the listing page appear in the same url address
-
+- Add a loader on the front page for when the results are being retreived
