@@ -41,14 +41,16 @@ export default class AppContainer extends Component
             description: this.state.job_description_filter,
             location: this.state.location_filter
         };
-        // let jf = this.state.job_description_filter;
-        // let lf = this.state.location_filter;
         /**
-         * Note: try this: make the filters url parameters, do a get request through that.
-         */
+            Refactor this section:
 
+            - redo with async and await to render a loader while the api is still being retrieved.
+        */
         axios.get(`http://localhost:8080/api?description=${filters.description}&location=${filters.location}`)
-        .then((job_listings) => this.setState({job_listings: job_listings.data}));
+        .then(() => console.log("loading..."))
+        .then((job_listings) => this.setState({job_listings: job_listings.data}))
+        .then(() => console.log("query completed"));
+
 
         e.preventDefault();
     }
