@@ -49,7 +49,7 @@ export default class AppContainer extends Component
         /**
             Refactor this section:
 
-            - redo with async and await to render a loader while the api is still being retrieved.
+            - redo with async and await
         */
         axios.get(`http://localhost:8080/api?description=${filters.description}&location=${filters.location}`)
         .then((job_listings) => {
