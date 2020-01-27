@@ -9,25 +9,34 @@ import Navbar from "./components/navbar";
 import AppContainer from "./components/app-container";
 import JobListing from "./components/job_listing_page";
 import Footer from "./components/footer";
+import Tester from "./components/tester";
+import Loader from "./components/loader";
 
 
 function App() {
+
+  const loader = <Loader />
   return (
-    <Router>
-      <Route 
-          exact path="/listing" 
-          component={JobListing}
-          />
-      <div id="main-container">
-        <Navbar />
-        <div id="job-container">
-          <AppContainer />
-        </div>
+    // <Router>
+    //   <Route 
+    //       exact path="/listing" 
+    //       component={JobListing}
+    //       />
+    //   <div id="main-container">
+    //     <Navbar />
+    //     <div id="job-container">
+    //       <AppContainer />
+    //     </div>
 
-        <Footer />
-      </div> 
+    //     <Footer />
+    //   </div> 
 
-    </Router>
+    // </Router>
+
+    <div>
+      <Tester loader={loader}/> 
+    </div>
+
   );
 }
 

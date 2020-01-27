@@ -47,7 +47,10 @@ export default class AppContainer extends Component
             - redo with async and await to render a loader while the api is still being retrieved.
         */
         axios.get(`http://localhost:8080/api?description=${filters.description}&location=${filters.location}`)
-        .then(() => console.log("loading..."))
+        .then((job_listings) => {
+            console.log("loading...");
+            return job_listings;
+        })
         .then((job_listings) => this.setState({job_listings: job_listings.data}))
         .then(() => console.log("query completed"));
 
