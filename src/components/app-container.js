@@ -18,7 +18,9 @@ export default class AppContainer extends Component
             location_description: "Filter by city, state, zip code or country",
             job_description_filter:'',
             location_filter:'',
-            job_listings: []
+            job_listings: [],
+            render_loader: false,
+            has_results: false
         };
         this.handleJobFilter = this.handleJobFilter.bind(this);
         this.handleLocationFilter = this.handleLocationFilter.bind(this);
@@ -36,6 +38,8 @@ export default class AppContainer extends Component
         this.setState({location_filter: e.target.value});
     }
 
+
+
     async getResults(filters)
     {
 
@@ -44,9 +48,20 @@ export default class AppContainer extends Component
             try {
                 await fetch(`http://localhost:8080/api?description=${filters.description}&location=${filters.location}`)
                 .then((job_listings) => {
+                    this.setState({render_loader: true});
                     return (job_listings.json());
                 })
-                .then((jobs) => {this.setState({job_listings: jobs})});
+                .then((jobs) => {
+                    if(jobs.length > 0)
+                    {
+                        this.setState({job_listings: jobs});
+                        this.setState({render_loader: false});
+                    }
+                    else
+                    {
+
+                    }
+                });
             }
             catch(e)
             {
@@ -61,7 +76,12 @@ export default class AppContainer extends Component
             description: this.state.job_description_filter,
             location: this.state.location_filter
         };
+        
             this.getResults(filters);
+            if(this.state.job_listings.length <= 0)
+            {
+                
+            }
             e.preventDefault();
     }
 
@@ -87,6 +107,7 @@ export default class AppContainer extends Component
                 handleLocationFilter={this.handleLocationFilter}
             />
             <SearchResults
+                renderLoader={this.state.render_loader}
                 data={this.state.job_listings}
             />
 

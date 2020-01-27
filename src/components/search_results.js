@@ -13,22 +13,10 @@ class SearchResults extends Component
         super(props);
     }
 
-    returnResults()
-    {
-        // if(this.props.is_awaiting_results)
-        // {  
-        //     return <Loader />;
-        // }
-        // else
-        // {
-            return <JobListings data={this.props.data} />;
-        // }
-    }
-
     render()
     {
         return(
-            this.returnResults()
+            (!this.props.renderLoader) ? <JobListings data={this.props.data} /> : <Loader />
         );
     }
 }

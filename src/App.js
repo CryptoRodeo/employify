@@ -23,7 +23,7 @@ function App() {
       <div id="main-container">
         <Navbar />
         <div id="job-container">
-          <AppContainer loader={<Loader />} />
+          <AppContainer/>
         </div>
 
         <Footer />
