@@ -18,8 +18,7 @@ export default class AppContainer extends Component
             location_description: "Filter by city, state, zip code or country",
             job_description_filter:'',
             location_filter:'',
-            job_listings: [],
-            is_awaiting_results:'',
+            job_listings: []
         };
         this.handleJobFilter = this.handleJobFilter.bind(this);
         this.handleLocationFilter = this.handleLocationFilter.bind(this);
@@ -37,35 +36,33 @@ export default class AppContainer extends Component
         this.setState({location_filter: e.target.value});
     }
 
-    handleSubmit(e)
+    async getResults(filters)
     {
 
-        let jobs = [];
+        if(filters.description && filters.location)
+        {
+            try {
+                await fetch(`http://localhost:8080/api?description=${filters.description}&location=${filters.location}`)
+                .then((job_listings) => {
+                    return (job_listings.json());
+                })
+                .then((jobs) => {this.setState({job_listings: jobs})});
+            }
+            catch(e)
+            {
+                console.log(e);
+            }
+        }
+    }
 
+    handleSubmit(e)
+    {
         let filters = {
             description: this.state.job_description_filter,
             location: this.state.location_filter
         };
-        /**
-            Refactor this section:
-
-            - redo with async and await
-        */
-        axios.get(`http://localhost:8080/api?description=${filters.description}&location=${filters.location}`)
-        .then((job_listings) => {
-            this.setState({is_awaiting_results: true});
-            return job_listings;
-        })
-        .then((job_listings) => this.setState({job_listings: job_listings.data}))
-        .then( () => 
-            {
-                if(this.state.job_listings.length > 0)
-                {
-                    this.setState({is_awaiting_results: false});
-                }
-            }
-        );
-        e.preventDefault();
+            this.getResults(filters);
+            e.preventDefault();
     }
 
     returnListing(event, job)
@@ -90,7 +87,6 @@ export default class AppContainer extends Component
                 handleLocationFilter={this.handleLocationFilter}
             />
             <SearchResults
-                is_awaiting_results={this.state.is_awaiting_results}
                 data={this.state.job_listings}
             />
 

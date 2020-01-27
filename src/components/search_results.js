@@ -15,14 +15,14 @@ class SearchResults extends Component
 
     returnResults()
     {
-        if(this.props.is_awaiting_results)
-        {  
-            return <Loader />;
-        }
-        else
-        {
+        // if(this.props.is_awaiting_results)
+        // {  
+        //     return <Loader />;
+        // }
+        // else
+        // {
             return <JobListings data={this.props.data} />;
-        }
+        // }
     }
 
     render()
