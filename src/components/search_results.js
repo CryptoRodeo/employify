@@ -15,19 +15,20 @@ class SearchResults extends Component
 
     toggle_results()
     {
-        if(!this.props.renderLoader && this.props.returnedResults && this.props.beganSearching)
+        if(this.props.returnedResults && this.props.beganSearching)
         {
             return <JobListings data={this.props.data} />;
         }
+        //Edit these sections
         else if(!this.props.returnedResults && this.props.beganSearching)
         {
-            if(this.props.returnedResults !== '')
-            {
-                return <h1>No results...</h1>;
-            }
-            return <Loader />;
+        
+            return <h1>No results...</h1>;
         }
-        return '';
+        else
+        {
+            return <h1>Begin searching!</h1>;
+        }
     }
 
     render()

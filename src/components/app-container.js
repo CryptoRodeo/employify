@@ -38,8 +38,6 @@ export default class AppContainer extends Component
         this.setState({location_filter: e.target.value});
     }
 
-
-
     async getResults(filters)
     {
 
@@ -79,10 +77,6 @@ export default class AppContainer extends Component
         };
         this.setState({began_searching: true}); //user began searching.
         this.getResults(filters);
-        if(this.state.job_listings.length <= 0)
-        {
-                
-        }
         e.preventDefault();
     }
 
