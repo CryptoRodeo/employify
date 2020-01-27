@@ -13,11 +13,26 @@ class SearchResults extends Component
         super(props);
     }
 
+    toggle_results()
+    {
+        if(!this.props.renderLoader && this.props.returnedResults && this.props.beganSearching)
+        {
+            return <JobListings data={this.props.data} />;
+        }
+        else if(!this.props.returnedResults && this.props.beganSearching)
+        {
+            if(this.props.returnedResults !== '')
+            {
+                return <h1>No results...</h1>;
+            }
+            return <Loader />;
+        }
+        return '';
+    }
+
     render()
     {
-        return(
-            (!this.props.renderLoader) ? <JobListings data={this.props.data} /> : <Loader />
-        );
+        return this.toggle_results()
     }
 }
 

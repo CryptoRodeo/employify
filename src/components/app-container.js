@@ -20,12 +20,12 @@ export default class AppContainer extends Component
             location_filter:'',
             job_listings: [],
             render_loader: false,
-            has_results: false
+            returned_results:false,
+            began_searching: false
         };
         this.handleJobFilter = this.handleJobFilter.bind(this);
         this.handleLocationFilter = this.handleLocationFilter.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.returnListing = this.returnListing.bind(this);
     }
 
     handleJobFilter(e)
@@ -55,11 +55,12 @@ export default class AppContainer extends Component
                     if(jobs.length > 0)
                     {
                         this.setState({job_listings: jobs});
+                        this.setState({returned_results: true})
                         this.setState({render_loader: false});
                     }
                     else
                     {
-
+                        this.setState({returned_results: false})
                     }
                 });
             }
@@ -76,19 +77,13 @@ export default class AppContainer extends Component
             description: this.state.job_description_filter,
             location: this.state.location_filter
         };
-        
-            this.getResults(filters);
-            if(this.state.job_listings.length <= 0)
-            {
+        this.setState({began_searching: true}); //user began searching.
+        this.getResults(filters);
+        if(this.state.job_listings.length <= 0)
+        {
                 
-            }
-            e.preventDefault();
-    }
-
-    returnListing(event, job)
-    {
-        event.preventDefault(); //prevent link from being clicked by default
-        console.log(job);
+        }
+        e.preventDefault();
     }
 
     
@@ -108,6 +103,8 @@ export default class AppContainer extends Component
             />
             <SearchResults
                 renderLoader={this.state.render_loader}
+                returnedResults={this.state.returned_results}
+                beganSearching={this.state.began_searching}
                 data={this.state.job_listings}
             />
 
