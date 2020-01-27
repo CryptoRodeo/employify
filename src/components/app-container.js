@@ -1,8 +1,12 @@
 import React, {Component} from 'react';
+import ReactDOM from "react-dom";
 import axios from 'axios';
+import Loader from "./loader";
 
 import JobForm from "./job-form";
 import JobListings from "./job-listings";
+
+import SearchResults from "./search_results";
 
 export default class AppContainer extends Component
 {
@@ -14,7 +18,8 @@ export default class AppContainer extends Component
             location_description: "Filter by city, state, zip code or country",
             job_description_filter:'',
             location_filter:'',
-            job_listings: []
+            job_listings: [],
+            is_awaiting_results:'',
         };
         this.handleJobFilter = this.handleJobFilter.bind(this);
         this.handleLocationFilter = this.handleLocationFilter.bind(this);
@@ -48,13 +53,18 @@ export default class AppContainer extends Component
         */
         axios.get(`http://localhost:8080/api?description=${filters.description}&location=${filters.location}`)
         .then((job_listings) => {
-            console.log("loading...");
+            this.setState({is_awaiting_results: true});
             return job_listings;
         })
         .then((job_listings) => this.setState({job_listings: job_listings.data}))
-        .then(() => console.log("query completed"));
-
-
+        .then( () => 
+            {
+                if(this.state.job_listings.length > 0)
+                {
+                    this.setState({is_awaiting_results: false});
+                }
+            }
+        );
         e.preventDefault();
     }
 
@@ -79,9 +89,13 @@ export default class AppContainer extends Component
                 handleJobFilter={this.handleJobFilter}
                 handleLocationFilter={this.handleLocationFilter}
             />
+            <SearchResults
+                is_awaiting_results={this.state.is_awaiting_results}
+                data={this.state.job_listings}
+            />
 
-            <JobListings data={this.state.job_listings} returnListing={this.returnListing} />
             </div>
+            
         )
     }
 }

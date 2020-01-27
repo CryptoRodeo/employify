@@ -7,23 +7,10 @@ export default class Loader extends Component
     {
         super(props);
     }
-    render_loader()
-    {
-        return(
-            <div class="loader"></div>
-        );
-    }
-
-    remove_loader()
-    {
-        let loader = document.querySelector('.loader');
-        loader.parentElement.removeChild(loader);
-    }
-
     render()
     {
         return(
-            this.render_loader()
-        )
+            <div className="loader">LOADING</div>
+        );
     }
 }

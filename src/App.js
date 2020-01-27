@@ -14,28 +14,22 @@ import Loader from "./components/loader";
 
 
 function App() {
-
-  const loader = <Loader />
   return (
-    // <Router>
-    //   <Route 
-    //       exact path="/listing" 
-    //       component={JobListing}
-    //       />
-    //   <div id="main-container">
-    //     <Navbar />
-    //     <div id="job-container">
-    //       <AppContainer />
-    //     </div>
+    <Router>
+      <Route 
+          exact path="/listing" 
+          component={JobListing}
+          />
+      <div id="main-container">
+        <Navbar />
+        <div id="job-container">
+          <AppContainer loader={<Loader />} />
+        </div>
 
-    //     <Footer />
-    //   </div> 
+        <Footer />
+      </div> 
 
-    // </Router>
-
-    <div>
-      <Tester loader={loader}/> 
-    </div>
+    </Router>
 
   );
 }

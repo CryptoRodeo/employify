@@ -13,15 +13,11 @@ class JobListings extends Component
         super(props);
     }
 
-    returnListing(job)
-    {
-        console.log(job);
-    }
-
     render()
     {
         return (
             <div id="job-listing">
+                
                 <ul>
                     {
                         this.props.data.map( (job , x) => (
