@@ -1,11 +1,8 @@
 import React, {Component} from 'react';
 import ReactDOM from "react-dom";
 import axios from 'axios';
-import Loader from "./loader";
 
 import JobForm from "./job-form";
-import JobListings from "./job-listings";
-
 import SearchResults from "./search_results";
 
 export default class AppContainer extends Component
@@ -19,7 +16,6 @@ export default class AppContainer extends Component
             job_description_filter:'',
             location_filter:'',
             job_listings: [],
-            render_loader: false,
             returned_results:false,
             began_searching: false
         };
@@ -46,7 +42,6 @@ export default class AppContainer extends Component
             try {
                 await fetch(`http://localhost:8080/api?description=${filters.description}&location=${filters.location}`)
                 .then((job_listings) => {
-                    this.setState({render_loader: true});
                     return (job_listings.json());
                 })
                 .then((jobs) => {
@@ -54,7 +49,6 @@ export default class AppContainer extends Component
                     {
                         this.setState({job_listings: jobs});
                         this.setState({returned_results: true})
-                        this.setState({render_loader: false});
                     }
                     else
                     {
@@ -96,7 +90,6 @@ export default class AppContainer extends Component
                 handleLocationFilter={this.handleLocationFilter}
             />
             <SearchResults
-                renderLoader={this.state.render_loader}
                 returnedResults={this.state.returned_results}
                 beganSearching={this.state.began_searching}
                 data={this.state.job_listings}

@@ -1,9 +1,5 @@
 import React, {Component} from "react";
 import JobListings from "./job-listings";
-import Loader from "./loader";
-
-
-var axios = require('axios');
 
 
 class SearchResults extends Component
