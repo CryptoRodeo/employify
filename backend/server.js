@@ -17,7 +17,7 @@ app.use(bodyparser.urlencoded({extended: true}));
 
 //requests go through here as to avoid the issues with cross origin requests if sent from the front end.
 app.get('/api', (req,res) => {
-    git.handle_git(res, `https://jobs.github.com/positions.json?description=${req.query.description}&location=${req.query.location}`);
+    git.return_listings(res, `https://jobs.github.com/positions.json?description=${req.query.description}&location=${req.query.location}`);
 });
 
 

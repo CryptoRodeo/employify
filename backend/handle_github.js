@@ -1,6 +1,6 @@
 const fetch = require('node-fetch');
 
-const handle_git = async (res, listing) =>  
+const return_listings = async (res, listing) =>  
 {
     try
     {
@@ -13,4 +13,4 @@ const handle_git = async (res, listing) =>
     }
 }
 
-exports.handle_git = handle_git;
+exports.return_listings = return_listings;
